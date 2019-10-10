@@ -1,0 +1,47 @@
+{
+    // "sshfs.configs": [
+    //     {
+    //         "host": "138.68.28.7",
+    //         "name": "neverdropped-stage",
+    //         "privateKeyPath": "/Users/andre/.ssh/nvdp",
+    //         "username": "master_cbmkcxhxgh"
+    //     }
+    // ],
+
+    "editor.formatOnSave": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 18,
+    "editor.tabSize": 2,
+    "editor.renderLineHighlight": "gutter",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.shell.osx": "zsh",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "breadcrumbs.enabled": true,
+    "editor.parameterHints.enabled": false,
+
+    "workbench.colorTheme": "Dracula",
+    "editor.rulers": [80, 120],
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+
+    // Eslint
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        },
+        {
+            "language": "typecript",
+            "autoFix": true
+        },
+        {
+            "language": "typecriptreact",
+            "autoFix": true
+        }
+    ]
+}
