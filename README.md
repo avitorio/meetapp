@@ -78,7 +78,7 @@ Then...
 
 - For iOS:
 
-For first time users, you should run the 'pod install' command:
+First time users should run the 'pod install' command:
 
 ```
 cd ios
