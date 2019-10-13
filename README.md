@@ -65,7 +65,14 @@ Go to the /mobile directory and install the dependencies needed by running:
 yarn
 ```
 
-Then after installation is finished:
+Wait for the installations to finish.
+Regardless of the platform you want to use, you should start by running the followinig command:
+
+```
+yarn start --reset-cache
+```
+
+Then...
 
 - For iOS:
 
@@ -88,3 +95,5 @@ react-native run-ios
 ```
 react-native run-android
 ```
+
+Have fun! :)
