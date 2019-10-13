@@ -25,7 +25,7 @@ Here's what you'll need to run this project:
 Once you clone the repository, go into the /backend folder and run the following commands:
 
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 Then create the database and tables
