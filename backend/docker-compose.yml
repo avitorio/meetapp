@@ -20,7 +20,7 @@ services:
       - '3333:3333'
     command: yarn dev
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=meetapp_db
     volumes:
       - '.:/usr/app'
 
