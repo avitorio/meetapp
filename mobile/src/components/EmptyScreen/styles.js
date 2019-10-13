@@ -5,11 +5,13 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
   opacity: 0.8;
+  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};
 `;
 
 export const EmptyText = styled.Text`
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
+  max-width: 250px;
 `;

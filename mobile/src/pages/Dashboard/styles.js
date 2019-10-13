@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
@@ -19,7 +20,7 @@ export const DateScroller = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
 `;
 
 export const CurrentDate = styled.Text`

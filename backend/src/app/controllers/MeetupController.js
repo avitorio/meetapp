@@ -8,8 +8,8 @@ import User from '../models/User';
 
 class MeetupController {
   async index(req, res) {
-    const page = req.query.page ? (req.query.page - 1) * 2 : 0;
-    const perPage = req.query.page ? 2 : 100;
+    const page = req.query.page ? (req.query.page - 1) * 3 : 0;
+    const perPage = req.query.page ? 3 : 100;
     const meetups = await Meetup.findAll({
       offset: page,
       limit: perPage,

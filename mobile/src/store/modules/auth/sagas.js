@@ -39,8 +39,6 @@ export function* signUp({ payload }) {
       password,
       provider: true,
     });
-
-    // history.push('/');
   } catch (err) {
     Alert.alert('Registration failed.', 'Please, verify your information.');
     yield put(signFailure());

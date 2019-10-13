@@ -3,7 +3,11 @@ import { reactotronRedux } from 'reactotron-redux';
 import reactotronSaga from 'reactotron-redux-saga';
 
 if (__DEV__) {
-  const tron = Reactotron.configure()
+  const tron = Reactotron.configure({
+    name: 'APP',
+    host: 'localhost',
+    port: 9090,
+  })
     .use(asyncStorage())
     .use(reactotronRedux())
     .use(reactotronSaga())

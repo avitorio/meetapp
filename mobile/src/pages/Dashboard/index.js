@@ -1,5 +1,11 @@
 import React, { useMemo, useEffect, useState } from 'react';
-import { Alert, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+  Alert,
+  TouchableOpacity,
+  ActivityIndicator,
+  StatusBar,
+  Platform,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { withNavigationFocus } from 'react-navigation';
 import { format, subDays, addDays } from 'date-fns';
@@ -8,11 +14,16 @@ import api from '~/services/api';
 
 import Background from '~/components/Background';
 import Meetup from '~/components/Meetup';
+import EmptyScreen from '~/components/EmptyScreen';
 
 import { Container, List, DateScroller, CurrentDate } from './styles';
 
 function Dashboard({ isFocused }) {
-  const [loading, setLoading] = useState(false);
+  if (Platform.OS !== 'ios') {
+    StatusBar.setBackgroundColor('#181620');
+  }
+
+  const [loading, setLoading] = useState(true);
   const [loadedAll, setLoadedAll] = useState(false);
   const [date, setDate] = useState(new Date());
   const formattedDate = useMemo(() => format(date, 'do MMM'), [date]);
@@ -69,11 +80,11 @@ function Dashboard({ isFocused }) {
     } else if (loadPage === 1) {
       setMeetups(meetupsResponse.data);
       setLoadedAll(true);
+      setLoading(false);
     } else {
       setLoadedAll(true);
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -154,15 +165,22 @@ function Dashboard({ isFocused }) {
             <Icon name="chevron-right" size={50} color="#FFF" />
           </TouchableOpacity>
         </DateScroller>
-        <List
-          onEndReachedThreshold={0.1}
-          onEndReached={() => loadMore(page)}
-          data={meetups}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => (
-            <Meetup onSubscribe={() => handleRSVP(item)} data={item} />
-          )}
-        />
+        {page === 1 && loadedAll === true ? (
+          <EmptyScreen name="filter-drama" marginBottom="70px">
+            {`There are no meetings on ${formattedDate}.`}
+          </EmptyScreen>
+        ) : (
+          <List
+            onEndReachedThreshold={0.1}
+            onEndReached={() => loadMore(page)}
+            data={meetups}
+            keyExtractor={item => String(item.id)}
+            renderItem={({ item }) => (
+              <Meetup onSubscribe={() => handleRSVP(item)} data={item} />
+            )}
+          />
+        )}
+
         {loading && (
           <ActivityIndicator size="large" color="#FFF" style={{ margin: 10 }} />
         )}

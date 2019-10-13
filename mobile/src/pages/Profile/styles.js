@@ -3,19 +3,31 @@ import styled from 'styled-components/native';
 import Input from '~/components/Input';
 import Button from '~/components/Button';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.KeyboardAvoidingView.attrs({
+  enabled: Platform.OS === 'ios',
+  behavior: 'padding',
+})`
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
 `;
 
 export const Form = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
-  contentContainerStyle: { padding: 30 },
 })`
   align-self: stretch;
 `;
 
 export const FormInput = styled(Input)`
   margin-bottom: 10px;
+`;
+
+export const InputError = styled.Text`
+  color: #f64c75;
+  font-weight: bold;
+  height: ${({ formikProps, formikKey }) =>
+    formikProps.touched[formikKey] && formikProps.errors[formikKey] ? 30 : 0};
 `;
 
 export const SubmitButton = styled(Button)`

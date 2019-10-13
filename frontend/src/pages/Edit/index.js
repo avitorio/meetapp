@@ -18,7 +18,9 @@ const schema = Yup.object().shape({
   title: Yup.string().required('A valid title is required.'),
   description: Yup.string().required('Please, insert a description.'),
   location: Yup.string().required('Please, insert a location.'),
-  date: Yup.date().required('Please, insert a date.'),
+  date: Yup.date()
+    .required('Please, insert a date.')
+    .min(new Date(), 'Date cannot be in the past'),
 });
 
 export default function Edit({ match }) {
@@ -74,7 +76,6 @@ export default function Edit({ match }) {
           onChange={e => setTextareaVal(e.target.value)}
         />
         <Input name="location" placeholder="Location" />
-        {/* <Input name="date" placeholder="Date" /> */}
         <DatePicker
           name="date"
           placeholder="Date"
