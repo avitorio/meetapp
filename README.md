@@ -53,7 +53,7 @@ Go to the /frontend directory and install the dependencies needed:
 yarn
 ```
 
-Then after installation is over run:
+Once installation is over run:
 
 ```
 yarn start
