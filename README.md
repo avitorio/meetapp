@@ -30,11 +30,13 @@ Then run the following command:
 yarn
 ```
 
+Wait for the packages installation to finish, then run:
+
 ```
 docker-compose up
 ```
 
-Then create the database and tables
+Once your containers are set up you are ready to create the database and tables:
 
 ```
 yarn sequelize db:create
