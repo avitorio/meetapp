@@ -2,7 +2,7 @@
 
 Node, ReactJS and React Native App for Meetup organizers.
 
-## Getting Started
+## Steps
 
 1. Clone the repository
 2. Use yarn to install the dependencies.
@@ -22,7 +22,13 @@ Here's what you'll need to run this project:
 
 ### Set up Environment and Backend
 
-Once you clone the repository, go into the /backend folder and run the following commands:
+Once you clone the repository, go into the /backend folder, create a file named '.env' and copy the contents of the .env.example file to it and replace the credentials with your own.
+
+Then run the following command:
+
+```
+yarn
+```
 
 ```
 docker-compose up
@@ -35,9 +41,9 @@ yarn sequelize db:create
 yarn sequelize db:migrate
 ```
 
-This should set up your Postgres environment.
+This should get the backend running.
 
-### Run the frontent (ReactJS)
+### Run the frontend/web version (ReactJS)
 
 Go to the /frontend directory and install the dependencies needed:
 
@@ -61,7 +67,17 @@ yarn
 
 Then after installation is finished:
 
-- For iOS run:
+- For iOS:
+
+For first time users, you should run the 'pod install' command:
+
+```
+cd ios
+pod install
+
+```
+
+Run:
 
 ```
 react-native run-ios
