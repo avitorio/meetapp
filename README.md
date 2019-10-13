@@ -83,6 +83,7 @@ First time users should run the 'pod install' command:
 ```
 cd ios
 pod install
+cd ..
 ```
 
 Run:
