@@ -21,8 +21,6 @@ export function* signIn({ payload }) {
     api.defaults.headers.authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
-
-    // history.push('/dashboard');
   } catch (err) {
     Alert.alert('Authentication failed', 'Verify your credentials.');
     yield put(signFailure());
@@ -37,7 +35,6 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
   } catch (err) {
     Alert.alert('Registration failed.', 'Please, verify your information.');
